@@ -117,7 +117,8 @@ class LoadHR(data.Dataset):
         if img_GT.shape[2] == 3:
             img_GT = img_GT[:, :, [2, 1, 0]]
             img_LR = img_LR[:, :, [2, 1, 0]]
-        # img_GT = torch.from_numpy(np.ascontiguousarray(np.transpose(img_GT, (2, 0, 1)))).float()
+        if self.opt['phase'] == 'train':
+            img_GT = torch.from_numpy(np.ascontiguousarray(np.transpose(img_GT, (2, 0, 1)))).float()
         img_LR = torch.from_numpy(np.ascontiguousarray(np.transpose(img_LR, (2, 0, 1)))).float()
 
         if LR_path is None:
