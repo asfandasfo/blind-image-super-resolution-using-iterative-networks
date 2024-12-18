@@ -1,1 +1,1 @@
-# Blind-Super-Resolution
+# Blind-Image-Super-Resolution
